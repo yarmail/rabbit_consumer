@@ -15,11 +15,11 @@ Spring Boot 3.1.1 <br>
 Dependencies: <br>
 Developer Tools > Lombok <br>
 Web > Spring Web <br> 
-Messaging > Spring for RabbitMQ <br><br>
-SQL > Spring Data JPA
-SQL > H2 Database
+Messaging > Spring for RabbitMQ <br>
+SQL > Spring Data JPA <br>
+SQL > H2 Database<br><br>
 
 Добавляем README.md
 
-src/main/resources/application.properties - используем для настроек H2
-src/main/resources/application.yml - используем для настроек RabbitMQ
+src/main/resources/application.properties - используем для настроек H2 <br>
+src/main/resources/application.yml - используем для настроек RabbitMQ<br><br>
