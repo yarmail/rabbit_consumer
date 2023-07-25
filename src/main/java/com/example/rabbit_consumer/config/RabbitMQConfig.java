@@ -53,7 +53,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
+    DirectExchange exchange() {
+        return new DirectExchange(userExchange);
     }
 }
