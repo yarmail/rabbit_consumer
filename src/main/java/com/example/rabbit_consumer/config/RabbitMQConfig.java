@@ -19,8 +19,6 @@ public class RabbitMQConfig {
     private String username;
     @Value("${spring.rabbitmq.password}")
     private String password;
-    @Value("${spring.rabbitmq.virtualHost}")
-    private String virtualHost;
     @Value("${spring.rabbitmq.port}")
     private int port;
 
