@@ -4,6 +4,7 @@
 spring:
   rabbitmq:
     host: rabbitmq # было localhost
+    virtual-host: /
     password: guest
     username: guest
     port: 5672
