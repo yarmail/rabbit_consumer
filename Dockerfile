@@ -11,3 +11,7 @@ COPY wait-for.sh ./wait-for.sh
 RUN chmod +x ./wait-for.sh
 COPY --from=maven /target/rabbit_consumer-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["./wait-for.sh", "rabbit_producer:8081", "--timeout=20", "--", "java", "-jar", "app.jar"]
+
+# Примечание
+# Как я понимаю, сервисы могут быть в готовности одинаково, поэтому
+# timeout должен на каждом сервисе накапливаться, например 20, 40, 60

@@ -21,9 +21,9 @@ public class ConsumerService {
 
     @RabbitListener(queues = "${spring.rabbitmq.queue}")
     public void receivedMessage(Users user) {
-        Users save = userRepository.save(user);
+        //Users save = userRepository.save(user);
         logger.info("-------------------");
-        logger.info("persisted " + save);
+        //logger.info("persisted " + save);
         logger.info("User recieved " + user);
         logger.info("-------------------");
     }

@@ -1,14 +1,18 @@
 # данный файл используем для настроек RabbitMQ
 
+# настройки RabbitMQ
 spring:
   rabbitmq:
     host: rabbitmq # было localhost
     password: guest
-    port: 15672
     username: guest
+    virtual-host: user.virtualHost
+    port: 15672
+
     exchange: user.exchange
     queue: user.queue
     routingkey: user.routingkey
+
 
 # Примечание
 # в файле docker-compose.yml мы назначаем сервису rabbitmq
