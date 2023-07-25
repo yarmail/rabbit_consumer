@@ -1,8 +1,6 @@
 package com.example.rabbit_consumer.config;
 
-import org.springframework.amqp.core.AmqpAdmin;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -55,5 +53,13 @@ public class RabbitMQConfig {
     @Bean
     DirectExchange exchange() {
         return new DirectExchange(userExchange);
+    }
+
+    @Bean
+    Binding binding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder
+                .bind(queue)
+                .to(exchange)
+                .with(userRoutingKey);
     }
 }
