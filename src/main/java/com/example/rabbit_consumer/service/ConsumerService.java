@@ -19,7 +19,7 @@ public class ConsumerService {
         this.userRepository = userRepository;
     }
 
-    @RabbitListener(queues = "${spring.rabbitmq.queue}")
+    @RabbitListener(queues = "${consumer.rabbitmq.queue}")
     public void receivedMessage(Users user) {
         //Users save = userRepository.save(user);
         logger.info("-------------------");
