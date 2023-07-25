@@ -1,6 +1,8 @@
 package com.example.rabbit_consumer.config;
 
 import org.springframework.amqp.core.AmqpAdmin;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -43,6 +45,11 @@ public class RabbitMQConfig {
         cachingConnectionFactory.setPort(port);
         cachingConnectionFactory.setVirtualHost(virtualHost);
         return cachingConnectionFactory;
+    }
+
+    @Bean
+    public Queue queue() {
+        return new Queue(userQueue);
     }
 
     @Bean
