@@ -1,14 +1,13 @@
 # данный файл используем для настроек RabbitMQ
 
 # настройки RabbitMQ
-spring:
+consumer:
   rabbitmq:
     host: rabbitmq # было localhost
     virtual-host: /
     password: guest
     username: guest
     port: 5672
-
     exchange: user.exchange
     queue: user.queue
     routingkey: user.routingkey
@@ -20,3 +19,7 @@ spring:
 
 # Примечание 2 (о портах)
 # по умолчанию порт: 5672 для amqp, 15672 - для управления
+
+# Примечание 3
+# Настройки RabbitMQ делаем с разным префиксом (producer, consumer)
+# на тот случай, если возникут ошибки, будет понятно из какого сервиса
