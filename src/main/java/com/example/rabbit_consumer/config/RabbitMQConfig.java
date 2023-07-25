@@ -32,36 +32,12 @@ public class RabbitMQConfig {
     private String routingkey;
 
     @Bean
-    public AmqpAdmin amqpAdmin() {
-        return new RabbitAdmin(connectionFactory());
-    }
-
-    @Bean
     CachingConnectionFactory connectionFactory() {
         CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory(host);
         cachingConnectionFactory.setUsername(username);
         cachingConnectionFactory.setPassword(password);
         cachingConnectionFactory.setPort(port);
-        cachingConnectionFactory.setVirtualHost(virtualHost);
         return cachingConnectionFactory;
-    }
-
-    @Bean
-    DirectExchange exchange() {
-        return new DirectExchange(exchange,true, false);
-    }
-
-    @Bean
-    public Queue queue() {
-        return new Queue(queue);
-    }
-
-    @Bean
-    Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder
-                .bind(queue)
-                .to(exchange)
-                .with(routingkey);
     }
 
     @Bean
